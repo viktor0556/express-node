@@ -1,0 +1,11 @@
+1. Create a simple API:
+
+Create an Express.js application that serves an /api/books endpoint that returns all the books from the PostgreSQL database on a GET request.
+Create a /api/books POST endpoint that adds a new book to the database.
+Create a /api/books/:id DELETE endpoint that deletes the book with the given ID from the database.
+
+2. More Advanced API:
+
+Implement an /api/authors endpoint that returns all authors from the database on a GET request.
+Implement a /api/authors POST endpoint that adds a new author to the database.
+Implement a /api/books/:id PUT endpoint that updates an existing book's data in the database.
