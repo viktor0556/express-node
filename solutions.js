@@ -23,6 +23,9 @@ app.get('/api/books', async (req, res) => {
   res.status(500).json({ message: 'An error occurred while querying the data', error});
   }
 });
+/* Use postman:
+(in vs code) Click Postman -> New HTTP Request -> Method: GET, URL: http://localhost:3000/api/books/ -> Click Send.
+*/
 
 app.post('/api/books', async (req, res) => {
   const { id, title, author, published_date, genre, author_id } = req.body;
@@ -38,6 +41,18 @@ app.post('/api/books', async (req, res) => {
     res.status(500).json({ message: 'An error occured while insert the data' });
   }
 });
+/* Use postman:
+(in vs code) Click Postman -> New HTTP Request -> Method: POST, URL: http://localhost:3000/api/books -> Body -> Click raw and select JSON -> Type this:
+{
+   "id": 1,
+   "title": "Film name",
+   author: "Aaron Sorkin",
+   "published_date": "2000-12-30",
+   "genre": "Horror",
+   "author_id": 1
+}
+-> Click Send.
+*/
 
 app.delete('/api/books/:id', async (req, res) => {
   const { id } = req.params;
@@ -54,6 +69,9 @@ app.delete('/api/books/:id', async (req, res) => {
     res.status(500).json({ message: 'An error occured while delete the data' });
   }
 });
+/* Use postman:
+(in vs code) Click Postman -> New HTTP Request -> Method: DELETE, URL: http://localhost:3000/api/books/1 -> Click Send.
+*/
 
 app.get('/api/authors', async (req, res) => {
   try {
@@ -65,6 +83,9 @@ app.get('/api/authors', async (req, res) => {
     res.status(500).json({ message: 'An error occurred while querying the data', error});
   }
 });
+/* Use postman:
+(in vs code) Click Postman -> New HTTP Request -> Method: GET, URL: http://localhost:3000/api/authors/ -> Click Send.
+*/
 
 app.post('/api/authors', async (req, res) => {
   const { author } = req.body;
@@ -78,6 +99,13 @@ app.post('/api/authors', async (req, res) => {
     console.log(error);
   }
 });
+/* Use postman:
+(in vs code) Click Postman -> New HTTP Request -> Method: POST, URL: http://localhost:3000/api/authors/ -> Body -> Click raw and select JSON -> Type this:
+{
+   "author": "Ady Endre"
+}
+-> Click Send.
+*/
 
 app.put('/api/authors/:id', async (req, res) => {
   const { id } = req.params;
@@ -96,6 +124,14 @@ app.put('/api/authors/:id', async (req, res) => {
     res.status(500).send('An error occured while updating the data');
   }
 });
+
+/* Use postman:
+(in vs code) Click Postman -> New HTTP Request -> Method: PUT, URL: http://localhost:3000/api/authors/1 -> Body -> Click raw and select JSON -> Type this:
+{
+   "author": "Ady Endre"
+}
+-> Click Send.
+*/
 
 app.listen(port, () => {
   console.log(`Server is running on ${port} port`)
